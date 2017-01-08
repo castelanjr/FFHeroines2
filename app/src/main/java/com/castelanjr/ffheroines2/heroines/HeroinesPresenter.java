@@ -49,6 +49,6 @@ public class HeroinesPresenter extends BasePresenter<HeroinesView>
 
     @Override
     public void onItemSelected(Heroine item) {
-
+        getView().showHeroineDetails(item);
     }
 }

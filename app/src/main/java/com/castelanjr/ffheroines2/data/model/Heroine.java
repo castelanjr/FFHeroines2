@@ -20,6 +20,11 @@ public abstract class Heroine implements Parcelable {
     public abstract String game();
     public abstract String url();
 
+    public static Heroine create(long id, String name, String fullname, String ability, String avatar,
+                                 String image, String description, String color, String game, String url) {
+        return new AutoValue_Heroine(id, name, fullname, ability, avatar, image, description, color, game, url);
+    }
+
     public static JsonAdapter.Factory typeAdapterFactory() {
         return AutoValue_Heroine.typeAdapterFactory();
     }
