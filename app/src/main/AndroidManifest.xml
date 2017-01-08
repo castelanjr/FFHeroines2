@@ -12,7 +12,7 @@
         android:name=".FFHApplication">
 
         <activity
-            android:name=".heroines.MainActivity"
+            android:name=".heroines.HeroinesActivity"
             android:theme="@style/Theme.Heroines.NoActionBar"
             android:label="@string/app_name">
 

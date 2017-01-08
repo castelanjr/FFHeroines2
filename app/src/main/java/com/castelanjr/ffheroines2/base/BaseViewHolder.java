@@ -11,21 +11,17 @@ public abstract class BaseViewHolder<T> extends RecyclerView.ViewHolder {
         super(itemView);
     }
 
-    public void setListener(BaseAdapter.OnItemSelectedListener<T> listener) {
+    void setListener(BaseAdapter.OnItemSelectedListener<T> listener) {
         this.listener = listener;
-    }
-
-    public BaseAdapter.OnItemSelectedListener<T> getListener() {
-        return listener;
     }
 
     private T item;
 
-    public void onClick() {
+    protected void onClick() {
         listener.onItemSelected(item);
     }
 
-    public void bindItem(T item) {
+    void bindItem(T item) {
         this.item = item;
         bindTo(item);
     }
