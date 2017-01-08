@@ -1,17 +1,14 @@
 package com.castelanjr.ffheroines2;
 
-import com.castelanjr.ffheroines2.heroines.MainActivity;
+import com.castelanjr.ffheroines2.data.DataModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 @Singleton
-@Component(modules = { AppModule.class })
-public interface FFHComponent {
-
-    void inject(FFHApplication application);
-    void inject(MainActivity activity);
+@Component(modules = { AppModule.class, DataModule.class})
+public interface FFHComponent extends FFHGraph {
 
     final class Initializer {
         private Initializer() {}
@@ -19,6 +16,7 @@ public interface FFHComponent {
         static FFHComponent init(FFHApplication context) {
             return DaggerFFHComponent.builder()
                     .appModule(new AppModule(context))
+                    .dataModule(new DataModule())
                     .build();
         }
     }

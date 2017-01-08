@@ -1,6 +1,7 @@
 package com.castelanjr.ffheroines2.data;
 
 import com.castelanjr.ffheroines2.data.model.Heroine;
+import com.castelanjr.ffheroines2.data.network.NetworkProvider;
 
 import java.util.List;
 
@@ -12,11 +13,14 @@ import io.reactivex.Single;
 @Singleton
 public class DataManager {
 
+    private final NetworkProvider networkProvider;
+
     @Inject
-    public DataManager() {
+    public DataManager(NetworkProvider networkProvider) {
+        this.networkProvider = networkProvider;
     }
 
     public Single<List<Heroine>> heroines() {
-        return null;
+        return networkProvider.heroines();
     }
 }
