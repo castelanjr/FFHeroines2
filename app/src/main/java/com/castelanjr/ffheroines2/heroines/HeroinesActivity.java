@@ -8,12 +8,14 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.castelanjr.ffheroines2.FFHApplication;
 import com.castelanjr.ffheroines2.R;
 import com.castelanjr.ffheroines2.base.BaseActivity;
 import com.castelanjr.ffheroines2.data.model.Heroine;
+import com.castelanjr.ffheroines2.heroine_details.HeroineDetailsActivity;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -46,7 +48,7 @@ public class HeroinesActivity extends BaseActivity implements HeroinesView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FFHApplication.get(this).getComponent().inject(this);
+        FFHApplication.get(this).component().inject(this);
 
         ButterKnife.bind(this);
 
@@ -84,7 +86,10 @@ public class HeroinesActivity extends BaseActivity implements HeroinesView {
 
     @Override
     public void showHeroineDetails(Heroine heroine) {
-
+        ImageView avatar = ButterKnife.findById(recyclerView
+                .findViewHolderForAdapterPosition(adapter.indexOf(heroine)).itemView,
+                R.id.image_heroine);
+        HeroineDetailsActivity.showDetails(this, avatar, heroine);
     }
 
     @Override

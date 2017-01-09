@@ -35,6 +35,10 @@ public abstract class BaseAdapter<T, VH extends BaseViewHolder<T>> extends Recyc
         notifyItemRemoved(pos);
     }
 
+    public int indexOf(T item) {
+        return data.indexOf(item);
+    }
+
     protected List<T> getData() {
         return data;
     }

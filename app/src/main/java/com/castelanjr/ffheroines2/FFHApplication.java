@@ -24,7 +24,7 @@ public class FFHApplication extends Application {
         component.inject(this);
     }
 
-    public FFHComponent getComponent() {
+    public FFHComponent component() {
         return component;
     }
 

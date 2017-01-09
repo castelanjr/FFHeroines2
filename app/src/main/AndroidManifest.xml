@@ -23,6 +23,11 @@
 
         </activity>
 
+        <activity
+            android:name=".heroine_details.HeroineDetailsActivity"
+            android:theme="@style/Theme.Heroines.NoActionBar.Special"
+            android:parentActivityName=".heroines.HeroinesActivity"/>
+
     </application>
 
 </manifest>
