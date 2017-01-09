@@ -4,21 +4,22 @@ import android.app.Application;
 import android.content.Context;
 
 import com.squareup.leakcanary.LeakCanary;
-import com.squareup.leakcanary.RefWatcher;
 
 import timber.log.Timber;
 
 public class FFHApplication extends Application {
     private FFHComponent component;
-    private RefWatcher refWatcher;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        Timber.plant(new Timber.DebugTree());
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
 
-        refWatcher = LeakCanary.install(this);
+        Timber.plant(new Timber.DebugTree());
 
         component = FFHComponent.Initializer.init(this);
         component.inject(this);
