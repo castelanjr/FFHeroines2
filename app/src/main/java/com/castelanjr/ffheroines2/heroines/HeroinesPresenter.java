@@ -8,8 +8,6 @@ import com.castelanjr.ffheroines2.util.AppScheduler;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
 import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
@@ -17,7 +15,6 @@ import timber.log.Timber;
 class HeroinesPresenter extends BasePresenter<HeroinesView>
         implements BaseAdapter.OnItemSelectedListener<Heroine> {
 
-    @Inject
     HeroinesPresenter(DataManager dataManager, AppScheduler appScheduler) {
         super(dataManager, appScheduler);
     }
