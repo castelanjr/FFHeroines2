@@ -8,8 +8,7 @@ import com.castelanjr.ffheroines2.util.AppScheduler;
 
 import java.util.List;
 
-import io.reactivex.SingleObserver;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableSingleObserver;
 import timber.log.Timber;
 
 class HeroinesPresenter extends BasePresenter<HeroinesView>
@@ -20,14 +19,11 @@ class HeroinesPresenter extends BasePresenter<HeroinesView>
     }
 
     void loadHeroines() {
-        dataManager.heroines()
+        addSubscription(dataManager.heroines()
                 .subscribeOn(appScheduler.io())
                 .observeOn(appScheduler.mainThread())
-                .subscribeWith(new SingleObserver<List<Heroine>>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        getView().showProgressIndicator(true);
-                    }
+                .doOnSubscribe(disposable -> getView().showProgressIndicator(true))
+                .subscribeWith(new DisposableSingleObserver<List<Heroine>>() {
 
                     @Override
                     public void onSuccess(List<Heroine> value) {
@@ -41,7 +37,7 @@ class HeroinesPresenter extends BasePresenter<HeroinesView>
                         getView().showError("Error loading data, please try again.");
                         Timber.e(e, "Error loading data");
                     }
-                });
+                }));
     }
 
     @Override

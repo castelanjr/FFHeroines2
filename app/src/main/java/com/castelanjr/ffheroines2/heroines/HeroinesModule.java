@@ -18,13 +18,13 @@ public class HeroinesModule {
 
     @Provides
     @ActivityScope
-    HeroinesView providesHeroinesView() {
+    HeroinesView provideView() {
         return view;
     }
 
     @Provides
     @ActivityScope
-    HeroinesPresenter presenter(DataManager dataManager, AppScheduler appScheduler) {
+    HeroinesPresenter providePresenter(DataManager dataManager, AppScheduler appScheduler) {
         HeroinesPresenter presenter = new HeroinesPresenter(dataManager, appScheduler);
         presenter.takeView(view);
         return presenter;

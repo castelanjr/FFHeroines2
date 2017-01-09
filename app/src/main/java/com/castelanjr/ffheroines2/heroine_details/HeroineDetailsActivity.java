@@ -75,13 +75,12 @@ public class HeroineDetailsActivity extends BaseActivity implements HeroineDetai
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_details);
-        FFHApplication.get(this).component().inject(this);
+        FFHApplication.get(this).component().plus(new HeroineDetailsModule(this)).inject(this);
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        presenter.takeView(this);
         presenter.loadDetails();
     }
 

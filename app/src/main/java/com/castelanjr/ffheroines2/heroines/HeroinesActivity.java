@@ -48,9 +48,7 @@ public class HeroinesActivity extends BaseActivity implements HeroinesView {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         FFHApplication.get(this).component().plus(new HeroinesModule(this)).inject(this);
-
         ButterKnife.bind(this);
 
         setSupportActionBar(toolbar);

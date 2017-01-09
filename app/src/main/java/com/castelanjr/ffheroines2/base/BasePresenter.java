@@ -6,7 +6,7 @@ import com.castelanjr.ffheroines2.util.AppScheduler;
 import java.lang.ref.WeakReference;
 
 import io.reactivex.disposables.CompositeDisposable;
-import io.reactivex.disposables.Disposable;
+import io.reactivex.observers.DisposableSingleObserver;
 
 public abstract class BasePresenter<T> {
 
@@ -36,7 +36,7 @@ public abstract class BasePresenter<T> {
         return view.get();
     }
 
-    protected void addSubscription(Disposable disposable) {
+    protected void addSubscription(DisposableSingleObserver disposable) {
         subscriptions.add(disposable);
     }
 }

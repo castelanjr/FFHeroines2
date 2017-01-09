@@ -5,11 +5,8 @@ import com.castelanjr.ffheroines2.data.DataManager;
 import com.castelanjr.ffheroines2.data.model.Heroine;
 import com.castelanjr.ffheroines2.util.AppScheduler;
 
-import javax.inject.Inject;
-
 class HeroineDetailsPresenter extends BasePresenter<HeroineDetailsView> {
-
-    @Inject
+    
     HeroineDetailsPresenter(DataManager dataManager, AppScheduler appScheduler) {
         super(dataManager, appScheduler);
     }
