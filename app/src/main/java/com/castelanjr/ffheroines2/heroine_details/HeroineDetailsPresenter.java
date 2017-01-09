@@ -10,7 +10,7 @@ import javax.inject.Inject;
 class HeroineDetailsPresenter extends BasePresenter<HeroineDetailsView> {
 
     @Inject
-    public HeroineDetailsPresenter(DataManager dataManager, AppScheduler appScheduler) {
+    HeroineDetailsPresenter(DataManager dataManager, AppScheduler appScheduler) {
         super(dataManager, appScheduler);
     }
 

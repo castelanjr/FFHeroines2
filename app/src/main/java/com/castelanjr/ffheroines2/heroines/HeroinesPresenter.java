@@ -14,7 +14,7 @@ import io.reactivex.SingleObserver;
 import io.reactivex.disposables.Disposable;
 import timber.log.Timber;
 
-public class HeroinesPresenter extends BasePresenter<HeroinesView>
+class HeroinesPresenter extends BasePresenter<HeroinesView>
         implements BaseAdapter.OnItemSelectedListener<Heroine> {
 
     @Inject
