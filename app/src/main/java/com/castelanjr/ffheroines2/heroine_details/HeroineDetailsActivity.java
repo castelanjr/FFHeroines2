@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.VisibleForTesting;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.ActivityOptionsCompat;
@@ -27,7 +28,8 @@ import butterknife.ButterKnife;
 
 public class HeroineDetailsActivity extends BaseActivity implements HeroineDetailsView {
 
-    private static final String EXTRA_HEROINE = "heroine";
+    @VisibleForTesting
+    public static final String EXTRA_HEROINE = "heroine";
 
     public static void showDetails(Activity activity, ImageView avatar, Heroine heroine) {
         Intent intent = new Intent(activity, HeroineDetailsActivity.class)

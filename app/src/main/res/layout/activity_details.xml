@@ -133,7 +133,7 @@
         android:id="@+id/appbarlayout"
         android:layout_height="320dp"
         android:layout_width="match_parent"
-        android:elevation="4dp"
+        app:elevation="4dp"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
