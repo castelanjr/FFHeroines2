@@ -38,7 +38,7 @@ public class HeroineDetailsPresenterTest {
 
         presenter.loadDetails();
 
-        verify(view).showName(heroine.name());
+        verify(view).showName(heroine.fullname());
         verify(view).showGame("Final Fantasy " + heroine.game());
         verify(view).showDescription(heroine.description());
         verify(view).showAbility(heroine.ability());

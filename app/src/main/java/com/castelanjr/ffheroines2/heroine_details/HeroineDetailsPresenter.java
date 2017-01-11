@@ -18,7 +18,7 @@ class HeroineDetailsPresenter extends BasePresenter<HeroineDetailsView> {
             throw new IllegalStateException("Heroine is null");
         }
 
-        getView().showName(heroine.name());
+        getView().showName(heroine.fullname());
         getView().showGame("Final Fantasy " + heroine.game());
         getView().showDescription(heroine.description());
         getView().showAbility(heroine.ability());
